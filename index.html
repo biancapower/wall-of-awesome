@@ -9,6 +9,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="style.css">
+
     <!-- STITCH -->
     <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4/stitch.js"></script>
     <script>
@@ -22,16 +24,18 @@
       // Get a reference to the slack database
       const db = mongodb.db("slack");
 
+      colours = ["bg-primary", "bg-success", "bg-info", "bg-warning", "bg-danger"];
 
       function displayWallMsgs() {
           db.collection("wallmsg")
             .find({}, {limit: 1000})
             .toArray()
             .then(docs => {
+              let i = 0;
               const html = docs.map(doc => `
-                <div class="col-sm-6">
-                  <div class="card">
-                    <div class="card-body">
+                <div class="">
+                  <div class="card m-5">
+                    <div class="card-body ${colours[i++ % colours.length]}">
                       <p class="card-text">${doc.msg}</p>
                     </div>
                   </div>
@@ -51,10 +55,10 @@
         }
     </script>
   </head>
-  <body onload="displayWallMsgsOnLoad()">
+  <body onload="displayWallMsgsOnLoad()" class="bg-light">
 
     <div class="container">
-      <h1>Wall of Awesome</h1>
+      <h1 class="m-5">Wall of Awesome</h1>
 
       <div class="row" id="wall-of-awesome">
       </div>
