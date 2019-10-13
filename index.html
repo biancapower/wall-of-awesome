@@ -28,7 +28,15 @@
             .find({}, {limit: 1000})
             .toArray()
             .then(docs => {
-              const html = docs.map(doc => `<div>${doc.msg}</div>`).join("<br>");
+              const html = docs.map(doc => `
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <p class="card-text">${doc.msg}</p>
+                    </div>
+                  </div>
+                </div>`
+                ).join("");
               document.getElementById("wall-of-awesome").innerHTML = html;
             });
         }
@@ -44,12 +52,13 @@
     </script>
   </head>
   <body onload="displayWallMsgsOnLoad()">
-    <h1>Wall of Awesome</h1>
-    <div id="content">
-      <p>This is our wall of AWESOME</p>
+
+    <div class="container">
+      <h1>Wall of Awesome</h1>
+
+      <div class="row" id="wall-of-awesome">
+      </div>
     </div>
-    <hr>
-    <div id="wall-of-awesome"></div>
 
     <!-- BOOTSTRAP -->
     <!-- Optional JavaScript -->
