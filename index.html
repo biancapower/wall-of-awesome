@@ -41,7 +41,7 @@
                     <div class="card-body">
                       <p class="card-text">${doc.msg}</p>  
                     </div>
-                    <p class="date ml-3 mr-3">@name, ${new Date(doc.when).toLocaleDateString("en-AU")}</p>
+                    <p class="date ml-3 mr-3">@${doc.user_name}, ${new Date(doc.when).toLocaleDateString("en-AU")}</p>
                   </div>
                 </div>`
                 ).join("");
