@@ -11,3 +11,9 @@
 .date {
     color: #E0E0E0;
 }
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1500px;
+    }
+}
