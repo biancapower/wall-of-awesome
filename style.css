@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Rock+Salt&display=swap');
+
+h1 {
+    font-family: 'Rock Salt', cursive;
+}
+
 .card {
     min-width: 125px;
     max-width: 300px;
@@ -6,6 +12,7 @@
 .card-text {
     color: white;
     font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .date {
