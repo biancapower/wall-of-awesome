@@ -26,6 +26,9 @@
 
       colours = ["bg-primary", "bg-success", "bg-info", "bg-warning", "bg-danger"];
 
+      // new Date(1571014023569).toLocaleDateString("en-AU")
+      // new Date(1571014023569).toLocaleTimeString("en-AU")
+
       function displayWallMsgs() {
           db.collection("wallmsg")
             .find({}, {limit: 1000})
@@ -34,10 +37,11 @@
               let i = 0;
               const html = docs.map(doc => `
                 <div class="">
-                  <div class="card m-5">
-                    <div class="card-body ${colours[i++ % colours.length]}">
-                      <p class="card-text">${doc.msg}</p>
+                  <div class="card m-5 ${colours[i++ % colours.length]}">
+                    <div class="card-body">
+                      <p class="card-text">${doc.msg}</p>  
                     </div>
+                    <p class="date ml-3 mr-3">@name, ${new Date(doc.when).toLocaleDateString("en-AU")}</p>
                   </div>
                 </div>`
                 ).join("");

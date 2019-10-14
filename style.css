@@ -1,4 +1,13 @@
 .card {
+    min-width: 125px;
     max-width: 300px;
+}
+
+.card-text {
     color: white;
+    font-weight: 600;
+}
+
+.date {
+    color: #E0E0E0;
 }
