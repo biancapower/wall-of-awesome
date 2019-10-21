@@ -35,6 +35,7 @@
             .toArray()
             .then(docs => {
               let i = 0;
+              docs.reverse() // reverses array so most recent message comes first
               const html = docs.map(doc => `
                 <div class="">
                   <div class="card m-5 ${colours[i++ % colours.length]}">
